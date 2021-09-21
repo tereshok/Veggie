@@ -1,0 +1,40 @@
+{
+    "key": "group_5dc97ecee2c93",
+    "title": "Contact Page",
+    "fields": [
+        {
+            "key": "field_5dc98066d5998",
+            "label": "Contact form",
+            "name": "contact_form",
+            "type": "gf_field",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "allow_null": 1,
+            "allow_multiple": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "templates\/template-contact.php"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "TMPL: Contact",
+    "modified": 1574089609
+}

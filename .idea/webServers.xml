@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="0f9c8ac9-294b-4604-b543-a5637df3a7c1" name="ready3">
+        <fileTransfer rootFolder="/var/www/html/internship/lukianets/veggie" accessType="SFTP" host="64.91.224.47" port="25566" sshConfigId="72b1773a-456c-4f02-863b-d2f91a1134c5" sshConfig="leuk0@64.91.224.47:25566 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

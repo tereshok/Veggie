@@ -1,0 +1,242 @@
+// Utils
+//@import 'inc/mixins';
+@import 'inc/foundation-custom';
+// Plugins
+@import 'plugins/font-awesome/fontawesome';
+@import 'plugins/slick.scss';
+//@import 'plugins/jquery.fancybox.v2.scss'; // Uncomment this line and comment line above to use Fancybox v.2
+@import 'plugins/jquery.fancybox.v3.scss';
+// Home slider
+@import 'inc/slider';
+// Animation
+@import 'inc/animation';
+
+/* ---------------------------------------
+	Typography / Forms / Inputs / Buttons
+--------------------------------------- */
+
+@import 'typography';
+
+/* ---------------------------------------
+	WooCommerce
+--------------------------------------- */
+
+//@import 'inc/woo';
+
+/* -----------------------------------------
+   WordPress Core Classes
+----------------------------------------- */
+
+@import 'inc/wp-core';
+
+/* -----------------------------------------
+   General fixes
+----------------------------------------- */
+
+html {
+	height: 100%;
+	scroll-behavior: smooth;
+}
+
+body {
+	position: static !important;
+	display: flex;
+	flex-direction: column;
+	height: auto;
+	min-height: 100vh;
+}
+
+main {
+	display: block;
+}
+
+.grid-container {
+	width: 100%;
+}
+
+*:last-child {
+	margin-bottom: 0;
+}
+
+img {
+	transition: opacity 0.3s ease-in-out;
+
+	&.pre-lazyload, &[data-lazy-src] {
+		opacity: 0;
+	}
+
+	&.lazyloaded {
+		opacity: 1;
+	}
+}
+
+/* -----------------------------------------
+    Contact Form
+----------------------------------------- */
+
+/*basic Gravity Form styles and fixes, if you dont need/use this -
+comment or delete styles below*/
+
+@import 'inc/gform';
+
+/* ------------------------------------
+    Content Styles
+------------------------------------- */
+
+.main-content {
+	padding-top: 50px;
+	padding-bottom: 50px;
+}
+
+/* Preloader */
+@keyframes spin {
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+.preloader {
+	position: fixed;
+	z-index: 100000000;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	visibility: visible;
+	opacity: 1;
+	background-color: #fff;
+	color: #222;
+	transition: opacity 0.4s ease, visibility 0.4s ease;
+
+	&--hidden {
+		visibility: hidden;
+		opacity: 0;
+		pointer-events: none;
+	}
+}
+
+.preloader__icon {
+	@include position-center;
+
+	&::before {
+		content: '\f1ce';
+		display: block;
+		font-family: $fa;
+		font-size: 40px;
+		font-weight: 900;
+		animation: spin 1s ease-in-out infinite;
+	}
+}
+
+/* Search form */
+
+.search-form {
+	position: relative;
+
+	.posts-list & {
+		margin-bottom: 40px;
+	}
+}
+
+.search-form__input {
+	padding-right: 75px;
+}
+
+.search-form__submit {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	height: auto;
+	padding: 10px 15px;
+	cursor: pointer;
+	//font-size: 0; // Uncomment to use icon in search button
+
+	&::after {
+		//content: "\f002"; // Uncomment to use icon in search button
+		font-family: $fa;
+		font-size: 20px;
+		font-weight: 900;
+	}
+}
+
+/* 404 page */
+
+.not-found {
+	padding-top: 100px;
+	padding-bottom: 100px;
+
+	.label {
+		background-color: $main-color;
+		text-decoration: none;
+		cursor: pointer;
+		color: #fff;
+
+		&:hover {
+			background-color: darken($main-color, 8);
+			color: #fff;
+		}
+	}
+}
+
+/* ---------------------------------------
+	Repeatable blocks
+--------------------------------------- */
+
+@import 'repeatable-blocks';
+
+/* ---------------------------------------
+	Header
+--------------------------------------- */
+
+@import 'header';
+
+/* ---------------------------------------
+	Sidebar
+--------------------------------------- */
+
+@import 'sidebar';
+
+/* ---------------------------------------
+	Footer
+--------------------------------------- */
+
+@import 'footer';
+
+/*---------------------------------------
+	TMPL: Home page
+---------------------------------------*/
+
+@import 'templates/home';
+
+/* ---------------------------------------
+	Page: Blog
+--------------------------------------- */
+
+@import 'templates/blog';
+
+/* ---------------------------------------
+	TMPL: Default page
+--------------------------------------- */
+
+@import 'templates/default';
+
+/* ---------------------------------------
+	TMPL: Contact page
+--------------------------------------- */
+
+@import 'templates/contact';
+
+
+.contact-link__view-map {
+	position: relative;
+	margin-top: vw(20);
+	padding-left: vw(25);
+	
+	@include breakpoint(medium down) {
+		margin-top: 20px;
+		padding-left: 25px;
+	}
+}
+
+

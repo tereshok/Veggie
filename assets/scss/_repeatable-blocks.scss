@@ -1,0 +1,202 @@
+/* ---------------------------------------
+	Helper classes
+--------------------------------------- */
+
+//use @extend %bgcover; to selector if you need background cover;
+%bgcover {
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+	background-size: cover;
+}
+
+//use @extend %bgcontain; to selector if you need contain background image;
+%bgcontain {
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+	background-size: contain;
+}
+
+.bg-cover {
+	@extend %bgcover;
+}
+
+.bg-contain {
+	@extend %bgcontain;
+}
+
+// Inherit parent section color for headings
+.inherit-color{
+	h1, h2, h3, h4, h5, h6,
+	.h1, .h2, .h3, .h4, .h5, .h6 {
+		color: inherit;
+	}
+}
+
+// Position element in the middle of the parent relative block
+.position-center {
+	@include position-center();
+}
+
+// Fill parent element with image. Similar to background but with <img>
+.stretched-img {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 1;
+}
+
+.rel-wrap {
+	position: relative;
+}
+
+.rel-content {
+	position: relative;
+	z-index: 2;
+}
+
+// Use object-fit:cover to save image actual ration and avoid distortion
+.of-cover, .stretched-img {
+	object-position: 50% 50%;
+	object-fit: cover;
+	font-family: 'object-fit: cover;';
+}
+
+// Split content in two columns
+.two-columns {
+	@include breakpoint(medium) {
+		columns: 2;
+	}
+}
+
+// Split content in three columns
+.three-columns {
+	@include breakpoint(medium) {
+		columns: 3;
+	}
+}
+
+// Make all parent block clickable. See https://getbootstrap.com/docs/4.4/utilities/stretched-link/
+.stretched-link::after {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 1;
+	pointer-events: auto;
+	content: "";
+	background-color: rgba(0, 0, 0, 0);
+}
+
+// Init class for parallax if image used as background of whole section
+.jarallax {
+	position: relative;
+
+	> .jarallax-img {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+	}
+}
+
+// Init class for parallax if image used as content part
+.jarallax-inline {
+	position: relative;
+
+	> .jarallax-img {
+		position: relative;
+		z-index: -100;
+		display: block;
+		min-width: 100%;
+		max-width: 100%;
+		height: auto;
+	}
+}
+
+/* ---------------------------------------
+	Social networks
+--------------------------------------- */
+
+.stay-tuned {
+	@include list-unstyled;
+
+	margin-right: -5px;
+	margin-left: -5px;
+	font-size: 0;
+}
+
+.stay-tuned__item {
+	display: inline-block;
+	margin-right: 5px;
+	margin-left: 5px;
+}
+
+.stay-tuned__link {
+	display: block;
+
+	.fab {
+		display: block;
+		font-size: 16px;
+	}
+}
+
+/* ---------------------------------------
+	Side by side
+--------------------------------------- */
+
+.sbs-block {
+	position: relative;
+	overflow: hidden;
+	padding-top: 50px;
+	padding-bottom: 50px;
+
+	&--reverse {
+		.cell.sbs-block__img-wrap {
+			right: 50%;
+			left: 0;
+		}
+	}
+}
+
+.sbs-block__content-wrap {
+	display: flex;
+	flex-direction: column;
+}
+
+.sbs-block__content {
+	display: flex;
+	align-items: center;
+
+	@include breakpoint(medium) {
+		min-height: 400px;
+	}
+}
+
+.sbs-block__content-inner {
+	width: 100%;
+}
+
+.cell.sbs-block__img-wrap {
+	@include breakpoint(medium) {
+		position: absolute;
+		top: 0;
+		right: 0;
+		left: 50%;
+		width: 50%;
+		height: 100%;
+		margin: 0;
+	}
+
+	@include breakpoint(small down) {
+		margin-bottom: 25px;
+	}
+}
+
+.sbs-block__img {
+	width: 100%;
+	height: 100%;
+}

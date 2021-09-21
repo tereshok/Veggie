@@ -1,0 +1,245 @@
+/* ---------------------------------------
+	Typography
+--------------------------------------- */
+
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap');
+
+body {
+	font-family: 'Merriweather', serif;
+	font-size: rem-calc(16);
+}
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+	a {
+		color: inherit;
+	}
+}
+
+h1, .h1 {
+	/*basic heading styles*/
+	font-family: 'Merriweather', serif;
+	font-size: 48px;
+	font-weight: 400;
+}
+
+h2, .h2 {
+	/*basic heading styles*/
+	font-family: 'Merriweather', serif;
+	font-size: 40px;
+	font-weight: 400;
+}
+
+h3, .h3 {
+	/*basic heading styles*/
+}
+
+h4, .h4 {
+	/*basic heading styles*/
+}
+
+h5, .h5 {
+	/*basic heading styles*/
+}
+
+h6, .h6 {
+	/*basic heading styles*/
+	font-family: 'Merriweather', serif;
+	font-size: 18px;
+	font-weight: 700;
+	text-transform: uppercase;
+}
+
+p {
+	/*basic paragraph styles*/
+	&:empty {
+		display: none;
+	}
+
+	a {
+		text-decoration: underline;
+	}
+}
+
+ul {
+	/*basic list styles*/
+	font-size: inherit;
+
+	li {
+		/*basic list-item styles*/
+	}
+}
+
+address {
+	font-style: normal;
+	margin-bottom: $global-margin;
+}
+
+a {
+	color: $main-color;
+	transition: all 0.2s ease-in-out;
+
+	&:hover, &:focus {
+		/*basic hover and focus effects*/
+		color: darken($main-color, 20);
+	}
+}
+
+a, button, .button, input[type='submit'], input[type='reset'], input[type='button'] {
+	// Change opacity to 0.5 and color by client request. 
+	-webkit-tap-highlight-color: rgba(invert($main-color), 0.5) !important;
+}
+
+/* ---------------------------------------
+	Forms/Inputs
+--------------------------------------- */
+
+.no-outline {
+	button, a, [tabindex] {
+		outline: none;
+	}
+}
+
+/* Placeholder styling */
+
+input, textarea {
+	&::placeholder {
+		opacity: 1;
+	}
+}
+
+/* Input Styling */
+$custom-input-height: ($input-font-size * unitless-calc($input-line-height, $input-font-size)) + (get-side($input-padding, 'top') + get-side($input-padding, 'bottom')) + rem-calc(get-border-value($input-border, 'width') * 2);
+[type=color],
+[type=date],
+[type=datetime-local],
+[type=datetime],
+[type=email],
+[type=month],
+[type=number],
+[type=password],
+[type=search],
+[type=tel],
+[type=text],
+[type=time],
+[type=url],
+[type=week],
+textarea,
+select,
+.ui-selectmenu-button {
+	/* STYLES GO THERE */
+	height: $custom-input-height;
+	margin-bottom: 0;
+}
+
+// Select styles
+.ui-selectmenu-button {
+	position: relative;
+	display: block;
+	min-width: 100%;
+	cursor: pointer;
+	background: $input-background;
+
+	.ui-icon {
+		position: absolute;
+		right: 10px;
+		margin-top: 0;
+
+		&::before {
+			content: '\f078';
+			color: $input-color;
+			font-family: $fa;
+			font-size: 11px;
+			font-weight: 900;
+		}
+	}
+}
+
+.ui-selectmenu-text {
+	display: block;
+	overflow: hidden;
+	text-align: left;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.ui-selectmenu-menu {
+	position: absolute;
+	z-index: 10;
+	top: 0;
+	left: 0;
+	display: none;
+	margin: 0;
+	padding: 0;
+
+	.ui-menu {
+		@include list-unstyled;
+		overflow: auto;
+		max-height: 400px;
+		background-color: #fff;
+		border: $input-border;
+		margin-top: -#{get-border-value($input-border, 'width')};
+		border-radius: 0 0 $input-radius $input-radius;
+
+		// Option styles
+		.ui-menu-item {
+			border: none;
+			cursor: pointer;
+			font-size: rem-calc(14);
+			padding: rem-calc(5) get-side($input-padding, 'left');
+			color: $text-color;
+			line-height: unitless-calc($input-line-height, $input-font-size);
+			flex: 0 1 100%;
+			background-color: #fff;
+
+			&.ui-state-hover,
+			&.ui-state-focus {
+				background-color: lighten($main-color, 40);
+			}
+		}
+	}
+}
+
+.ui-selectmenu-open {
+	display: block;
+}
+
+textarea[rows] {
+	/*Styles for TextArea*/
+	height: 150px;
+	max-width: 100%;
+}
+
+[type=number] {
+	-moz-appearance: textfield;
+}
+
+[type=number]::-webkit-inner-spin-button,
+[type=number]::-webkit-outer-spin-button {
+	margin: 0;
+	-webkit-appearance: none;
+}
+
+[type=checkbox],
+[type=file],
+[type=radio] {
+	margin-bottom: 0;
+}
+
+button, .button, input[type='submit'], input[type='reset'], input[type='button'] {
+	border-width: $button-hollow-border-width;
+	transition: all 0.2s ease-in-out;
+	text-decoration: none;
+
+	&:hover, &:focus {
+
+	}
+}
+
+/* Button additional styles */
+
+.button {
+	&:hover, &:focus {
+		/*basic hover and focus effects*/
+	}
+}

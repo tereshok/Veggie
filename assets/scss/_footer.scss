@@ -1,0 +1,55 @@
+.footer {
+	margin: -60px 0 0 0;
+
+	@media screen and (max-width: 640px) {
+		margin: -100px 0 0 0;
+		background-color: #ffffff87;
+	}
+}
+
+.footer__logo {
+	img {
+		max-height: 120px;
+		width: auto;
+	}
+}
+
+.footer__sp {
+	text-align: right;
+
+	@media screen and (max-width: 640px) {
+		text-align: center;
+		padding: 10px 0 0 0;
+	}
+
+	.stay-tuned__link span {
+		font-size: 18px;
+		color: $text-color;
+		padding: 12px 18px;
+		border: 1px solid $text-color;
+
+		&:hover {
+			background-color: $text-color;
+			color: $main-color;
+		}
+	}
+}
+
+.footer-menu {
+	@include list-unstyled;
+	text-align: center;
+
+	li {
+		display: inline-block;
+
+		a {
+			display: block;
+			padding: 5px 10px;
+		}
+	}
+}
+
+.footer__copy {
+	font-size: 18px;
+	text-align: center;
+}
